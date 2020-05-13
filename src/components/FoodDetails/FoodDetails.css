@@ -1,0 +1,13 @@
+.imageDetailsSize{
+    width: 400px;
+}
+.foodDetailsSize{
+    margin-top: 80px;
+    margin-left: 40px;
+}
+.foodName{
+    font-weight: bold;
+}
+.inputQuantity{
+    width: 10px;
+}

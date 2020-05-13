@@ -23,9 +23,7 @@ const Header = () => {
                     <button className="signUpBtn">Sign Up</button>
                 </div>
             </div>
-            <div className="bgImage">
-                    <h3 className="textALign">Best food waiting for your Area</h3>
-            </div>
+          
         </div>
     );
 };

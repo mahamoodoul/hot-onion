@@ -1,0 +1,35 @@
+.menuButton{
+    margin-top: 40px;
+    padding: 5px 10px;
+    margin-right: 60px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 40px;
+    border: 1px solid white;
+    width: 40px;
+    height: 45px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.menuButton:hover {
+    color: red;
+
+  }
+
+.cartQuantity{
+    margin-top: 10px;
+}
+.inputQuantity{
+    width: 30px !important;
+    border: none !important;
+}
+.quantity{
+    width: 20px;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid white;
+}
+.btnSizing{
+    height: 35px;
+}

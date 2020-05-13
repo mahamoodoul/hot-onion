@@ -1,0 +1,27 @@
+.foodCardPosition{
+    margin: 30px 30px;
+}
+
+.foodImage{
+    width: 70px;
+}
+
+.card{
+    border: none;
+    color: black;
+    
+}
+
+.card:hover{
+    border-radius: 10px;
+    border: none;
+    box-shadow: 5px 5px 15px lightgray;
+    cursor: pointer;
+}
+.details{
+    
+    font-weight: bold;
+}
+a {
+    text-decoration: none !important;
+}
