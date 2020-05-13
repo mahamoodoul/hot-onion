@@ -5,6 +5,7 @@ import './FoodDetails.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import { addToDatabaseCart } from '../../utilities/databaseManager';
 const FoodDetails = () => {
     const { id } = useParams();
     // debugger;
@@ -13,6 +14,11 @@ const FoodDetails = () => {
 
     const [qunatity,setQuantity]=useState(1);
     console.log(qunatity);
+
+    const foodOrder =() =>{
+        
+        addToDatabaseCart(itemDetails.id,qunatity);
+    }
     
 
     return (
@@ -40,7 +46,6 @@ const FoodDetails = () => {
                                     
                                     <button onClick={() =>setQuantity(qunatity-1)} style={{marginLeft:'5px'}} type="button" className="quantity-left-minus btn btn-danger btn-number btnSizing" data-type="minus" data-field="">-</button>
                                  
-                                    {/* <input className="inputQuantity formControl textCenter" type="text" id="quantity" name="quantity"  value={qunatity} min="1" max="100" /> */}
                                         <p className="quantity">{qunatity}</p>
                                    
                                     <button onClick={() =>setQuantity(qunatity+1)} type="button" className="quantity-right-plus btn btn-success btn-number btnSizing" data-type="plus" data-field="">+</button>
@@ -53,7 +58,7 @@ const FoodDetails = () => {
 
 
 
-                    <button className="signUpBtn"><FontAwesomeIcon icon={faShoppingCart} /> Add</button>
+                    <button onClick={foodOrder} className="signUpBtn"><FontAwesomeIcon icon={faShoppingCart} /> Add</button>
                 </div>
                 <div className="col-md-6">
                     <img className="imageDetailsSize" src={itemDetails.image} alt="foodimage" />

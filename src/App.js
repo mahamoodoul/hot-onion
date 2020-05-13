@@ -12,6 +12,7 @@ import {
 import FoodDetails from './components/FoodDetails/FoodDetails';
 import NotFound from './components/NotFound/NotFound';
 import Banner from './components/Banner/Banner';
+import Order from './components/Order/Order';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
       <Router>
         <Switch>
 
-          <Route path="/shop">
+          <Route path="/mainShop">
             <FoodLanding></FoodLanding>
           </Route>
           <Route path="/food/:id">
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <FoodLanding></FoodLanding>
+          </Route>
+          <Route path="/order">
+            <Order></Order>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

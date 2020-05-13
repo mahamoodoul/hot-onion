@@ -4,6 +4,8 @@ import myData from '../../data';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import FoodCategory from '../FoodCategory/FoodCategory';
+import Cart from '../Cart/Cart';
+import { Link } from 'react-router-dom';
 
 const FoodLanding = () => {
     const [foodItem, setFoodItem] = useState([]);
@@ -56,11 +58,15 @@ const FoodLanding = () => {
                     }
 
                 </div>
+                
                 <div className="d-flex justify-content-center">
-                    <button >Checkout Your Food</button>
+                    <Link to="/order">
+                        <button >Checkout Your Food</button>
+                    </Link>
+                   
                 </div>
             </div>
-
+                   
         </div>
     );
 };

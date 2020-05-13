@@ -9,7 +9,9 @@ const Header = () => {
            
             <div style={{marginBottom : '0px !important'}} className="d-flex bd-highlight  headerstyle"  >
                 <div className="p-2 bd-highlight">
-                        <img className="logoPosition" src={logo} alt="logo"/>
+
+                    <a href="mainShop"><img className="logoPosition" src={logo} alt="logo"/></a>
+                        
                 </div>
                
                 <div className="ml-auto p-2 bd-highlight">
