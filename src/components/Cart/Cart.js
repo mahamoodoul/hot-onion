@@ -6,10 +6,22 @@ import { getDatabaseCart } from '../../utilities/databaseManager';
 import { useEffect } from 'react';
 import CartData from '../CartData/CartData';
 
-const Cart = () => {
-
+const Cart = (props) => {
 
     const [cartFood, setCartFood] = useState([]);
+
+    const userInfo=props.userInfo;
+    console.log(userInfo);
+    console.log(userInfo.length);
+
+    let user = Object.keys(userInfo).map((k) => userInfo[k]);
+    
+    
+   
+    
+
+    
+    
 
 
 
@@ -79,8 +91,14 @@ const Cart = () => {
                         </div>
 
                     </div>
-
-                    <button className="placeOrderBtn">Place Order</button>
+                    {
+                        user.length>0 ?
+                            <button  className="placeOrderBtn" enable="true"  >Place Order</button>
+                        :
+                            <button  className="placeOrderBtn" disabled  >Place Order</button>
+                        
+                    }
+                    
 
 
 

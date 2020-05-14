@@ -1,8 +1,17 @@
 import React from 'react';
 import Shipment from './../Shipment/Shipment';
 import Cart from '../Cart/Cart';
+import { useState } from 'react';
 
 const Order = () => {
+    const [userInfo,setUserInfo]=useState([]);
+
+    const getUserDetails=(data)=>{
+
+        setUserInfo(data);    
+    }
+    console.log(userInfo);
+    
     return (
         <div className="container">
             <div className="d-flex justify-content-center">
@@ -13,10 +22,10 @@ const Order = () => {
             </div>
             <div className="row">
                 <div className="col-md-6">
-                    <Shipment></Shipment>
+                    <Shipment getUserDetails={getUserDetails}></Shipment>
                 </div>
                 <div className="col-md-6">
-                    <Cart></Cart>
+                    <Cart userInfo={userInfo}></Cart>
                 </div>
             </div>
         </div>

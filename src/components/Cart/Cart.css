@@ -29,9 +29,9 @@ span{
 .placeOrderBtn{
     margin-top: 25px;
     width: 260px;
-    height: 40px;
-    font-weight: bold;
-    background-color: rgb(243, 8, 8);
+    height: 35px;
+    font-weight: 1100;
+    background-color: red;
     border-radius: 5px;
     border: 1px solid red;
 
