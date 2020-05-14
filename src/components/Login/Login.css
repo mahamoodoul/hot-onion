@@ -1,0 +1,46 @@
+.loginPage{
+   height: 500px;
+   margin-top: 100px;
+}
+.login-form input{
+
+    margin-top: 30px;
+    padding: 0px;
+    width: 30%;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgba(248, 197, 197, 0.5);
+   
+}
+.loginLogo img{
+    width: 240px;
+   
+   margin-bottom: 20px;
+}
+.login-form{
+    text-align:center;
+    height: 700px;
+   
+   
+}
+.container{
+    text-align: center;
+    width: 700px;
+    
+}
+.btn{
+    background-color: red !important;
+    border-radius: 5px !important;
+    border: 1px solid red !important;
+    color: White !important;
+}
+.link  {
+    text-decoration: none;
+    margin-top: 30px !important;
+    padding-top: 30px;
+    color: red;
+}
+.error{
+    padding-left: 100px !important;
+}

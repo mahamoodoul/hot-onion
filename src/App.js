@@ -13,33 +13,43 @@ import FoodDetails from './components/FoodDetails/FoodDetails';
 import NotFound from './components/NotFound/NotFound';
 import Banner from './components/Banner/Banner';
 import Order from './components/Order/Order';
+import { AuthContextProvider, PrivateRoute } from './components/Login/useAuth';
+import Login from './components/Login/Login';
+import CreateAccount from './components/CreateAccount/CreateAccount';
 
 function App() {
   return (
     <div >
-      <Header></Header>
-      <Banner></Banner>
-      <Router>
-        <Switch>
+      <AuthContextProvider>
+        <Header></Header>
+        <Banner></Banner>
+        <Router>
+          <Switch>
 
-          <Route path="/mainShop">
-            <FoodLanding></FoodLanding>
-          </Route>
-          <Route path="/food/:id">
-            <FoodDetails></FoodDetails>
-          </Route>
-          <Route exact path="/">
-            <FoodLanding></FoodLanding>
-          </Route>
-          <Route path="/order">
-            <Order></Order>
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-      </Router>
-
+            <Route path="/mainShop">
+              <FoodLanding></FoodLanding>
+            </Route>
+            <Route path="/food/:id">
+              <FoodDetails></FoodDetails>
+            </Route>
+            <Route exact path="/">
+              <FoodLanding></FoodLanding>
+            </Route>
+            <PrivateRoute path="/order">
+              <Order></Order>
+            </PrivateRoute>
+            <Route  path="/login">
+              <Login></Login>
+           </Route>
+           <Route  path="/create">
+              <CreateAccount></CreateAccount>
+           </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </Router>
+      </AuthContextProvider>
     </div>
   );
 }

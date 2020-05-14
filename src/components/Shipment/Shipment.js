@@ -3,9 +3,7 @@ import { useForm } from 'react-hook-form';
 import './Shipment.css';
 const Shipment = (props) => {
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => {
-        // console.log(data);
-    };
+   
     return (
         <div className="formReforming">
             <form className="ship-form" onSubmit={handleSubmit((props.getUserDetails))}>

@@ -19,10 +19,12 @@ const Header = () => {
                   <button className="cartIcon"><FontAwesomeIcon icon={faShoppingCart} /></button>
                 </div>
                 <div className="p-2 bd-highlight">
-                    <button className="loginBtn">Login</button>
+                    
+                    <a href="create"><button className="loginBtn">Login</button></a>
                 </div>
                 <div className="p-2 bd-highlight">
-                    <button className="signUpBtn">Sign Up</button>
+                   
+                    <a href="/login"><button className="signUpBtn">Sign Up</button></a>
                 </div>
             </div>
           

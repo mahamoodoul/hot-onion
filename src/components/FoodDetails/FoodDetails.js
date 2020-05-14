@@ -7,6 +7,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import { addToDatabaseCart } from '../../utilities/databaseManager';
 const FoodDetails = () => {
+    
     const { id } = useParams();
     // debugger;
     const itemDetails = myData.find(fdKey => fdKey.id === id);

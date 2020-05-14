@@ -6,20 +6,25 @@ import { useEffect } from 'react';
 import FoodCategory from '../FoodCategory/FoodCategory';
 import Cart from '../Cart/Cart';
 import { Link } from 'react-router-dom';
+import { getDatabaseCart } from '../../utilities/databaseManager';
 
 const FoodLanding = () => {
     const [foodItem, setFoodItem] = useState([]);
-
-
+    const [cart, setCart] = useState([]);
 
 
     useEffect(() => {
 
         const data = myData.filter(food => food.category === "breakfast");
         setFoodItem(data);
-
+        const saveCart = getDatabaseCart();
+        setCart(saveCart);
 
     }, [])
+
+    let cartItem = Object.keys(cart).map((k) => cart[k]);
+    console.log(cartItem.length);
+
 
 
     const handleBreakFast = () => {
@@ -30,11 +35,11 @@ const FoodLanding = () => {
 
     }
 
-    const handleLunch =() =>{
+    const handleLunch = () => {
         const data = myData.filter(food => food.category === "lunch");
         setFoodItem(data);
     }
-    const handleDinner= ()=>{
+    const handleDinner = () => {
         const data = myData.filter(food => food.category === "dinner");
         setFoodItem(data);
     }
@@ -44,7 +49,7 @@ const FoodLanding = () => {
                 <div className="d-flex justify-content-center">
 
                     <button onClick={handleBreakFast} className="menuButton">Breakfast</button>
-                    <button  onClick={handleLunch} className="menuButton">Lunch</button>
+                    <button onClick={handleLunch} className="menuButton">Lunch</button>
                     <button onClick={handleDinner} className="menuButton">Dinner</button>
                 </div>
 
@@ -52,21 +57,27 @@ const FoodLanding = () => {
             <div className="foodItem">
 
                 <div className="row">
-                    
+
                     {
                         foodItem.map(fd => <FoodCategory key={fd.id} foodItem={fd}></FoodCategory>)
                     }
 
                 </div>
-                
+
                 <div className="d-flex justify-content-center">
                     <Link to="/order">
-                        <button >Checkout Your Food</button>
+                        {
+                            cartItem.length > 0 ?
+                                <button className="placeOrderBtn" enable="true" >Checkout Your Food</button>
+                                :
+                                <button className="placeOrderBtn" disabled>Checkout Your Food</button>
+                        }
+
                     </Link>
-                   
+
                 </div>
             </div>
-                   
+
         </div>
     );
 };
