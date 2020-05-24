@@ -36,7 +36,7 @@ export const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        auth.user ="11" ? (
+        auth.user  ? (
           children
         ) : (
             <Redirect
