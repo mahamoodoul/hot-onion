@@ -1,65 +1,72 @@
 import React from 'react';
 import './Cart.css';
-import myData from '../../data';
 import { useState } from 'react';
 import { getDatabaseCart } from '../../utilities/databaseManager';
 import { useEffect } from 'react';
 import CartData from '../CartData/CartData';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
 
     const [cartFood, setCartFood] = useState([]);
+    const [products, setProducts] = useState([]);
 
-    const userInfo=props.userInfo;
-    console.log(userInfo);
-    console.log(userInfo.length);
+    const userShippingInfo = props.userInfo;
+    console.log(userShippingInfo);
+    console.log(userShippingInfo.length);
 
-    let user = Object.keys(userInfo).map((k) => userInfo[k]);
-    
-    
-   
-    
+    let user = Object.keys(userShippingInfo).map((k) => userShippingInfo[k]);
 
-    
-    
+    useEffect(() => {
+        fetch('http://localhost:4200/product')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+
+            })
+    }, [])
 
 
 
     useEffect(() => {
-        const data = myData;
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        const previousCart = productKeys.map(existingkey => {
-            const product = data.find(fd => fd.id === existingkey);
-            product.quantity = savedCart[existingkey];
-            return product;
-        })
-        setCartFood(previousCart);
+        if (products.length) {
+            const previousCart = productKeys.map(existingkey => {
+                const product = products.find(fd => fd.id === existingkey);
+                product.quantity = savedCart[existingkey];
+                return product;
+            })
+            setCartFood(previousCart);
+        }
 
-    }, []);
+    }, [products]);
 
-    console.log(cartFood);
+
+
+
+
     var price = 0;
     var totalprice = 0;
     for (let i = 0; i < cartFood.length; i++) {
         price = Number(cartFood[i].price) * Number(cartFood[i].quantity);
         totalprice = totalprice + price;
-         
+
     }
-    
+
     console.log(totalprice);
     const deliverFee = 5;
     const tax = 4.50;
-    const formatNumber =(num ) =>{
-        const precision=num.toFixed(2);
+    const formatNumber = (num) => {
+        const precision = num.toFixed(2);
         return Number(precision);
     }
-    const total=formatNumber(totalprice);
-    const fee=formatNumber(deliverFee);
-    const vat= formatNumber(tax);
-    
+    const total = formatNumber(totalprice);
+    const fee = formatNumber(deliverFee);
+    const vat = formatNumber(tax);
 
-    var totalPriceWithAll= (total)+(fee)+(vat);
+
+    var totalPriceWithAll = (total) + (fee) + (vat);
 
 
     return (
@@ -91,14 +98,17 @@ const Cart = (props) => {
                         </div>
 
                     </div>
-                    {
-                        user.length>0 ?
-                            <button  className="placeOrderBtn" enable="true"  >Place Order</button>
-                        :
-                            <button  className="placeOrderBtn" disabled  >Place Order</button>
-                        
-                    }
-                    
+
+                    <Link to="/delivery">
+                        {
+                            user.length > 0 ?
+
+                                <button className="placeOrderBtn" enable="true"  >Place Order</button>
+                                :
+                                <button className="placeOrderBtn" disabled  >Place Order</button>
+
+                        }
+                    </Link>
 
 
 

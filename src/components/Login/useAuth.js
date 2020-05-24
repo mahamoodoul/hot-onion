@@ -28,6 +28,10 @@ export const useAuth = () => useContext(AuthContext);
 export const PrivateRoute = ({ children, ...rest }) => {
 
   const auth = useAuth();
+  console.log(auth);
+
+
+
   return (
     <Route
       {...rest}
@@ -55,15 +59,10 @@ export const PrivateRoute = ({ children, ...rest }) => {
 
 
 
-const getUser = user => {
-  const { email } = user;
-  return {  email };
-}
-
 const Auth = () => {
 
   const [user, setUser] = useState(null);
-  const [name,setName]=useState(null);
+ 
 
 
 
@@ -82,67 +81,67 @@ const Auth = () => {
       })
   }
 
-var info={};
+ 
+
   const signInUser = (email, password) => {
+
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(res => {
+    .then(res =>{
+      console.log(res);
+      const createdUser= {...user};
+      setUser(createdUser);
+    })
+    .catch(err =>{
+      console.log(err.message);
+      const createdUser= {...user};
+      setUser(createdUser);
+    })
+
+  }
 
 
-        firebase.auth().onAuthStateChanged((user) => {
-          if (user) {
-            firebase.database().ref('users/' + user.uid) //reference uid of logged in user like so
-              .on('value', (snapshot) => {
-                const data = snapshot.val() || [];
-                console.log(data);
-               setName(data);
-               info.name=data.firstName;
 
-              });
-          }
-        });
-        const email=res.user.email;
-       
-         info.email=email;
-         let userDetails = Object.keys(info).map((k) => info[k]);
-          setUser(userDetails);
-          console.log(user);
-          
-
-
-      })
-      .catch(err => {
-        console.log(err.message);
-        const createdUser = { ...user };
-        setUser(createdUser);
-      })
-      return name;
+  const signOutuser = () => {
+    firebase.auth().signOut().then(function () {
+      setUser(null);
+      return true;
+    }).catch(function (error) {
+      // An error happened.
+      console.log(error);
+      return false;
+    });
   }
 
 
 
 
 
-
-
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        //  const currentUser = getUser(usr);
-        setUser(user);
-        // User is signed in.
-      } else {
-        // No user is signed in.
-      }
+    firebase.auth().onAuthStateChanged(function (usr) {
+      if (usr) {
+          firebase.database().ref('users/' + usr.uid) //reference uid of logged in user like so
+            .on('value', (snapshot) => {
+              const data = snapshot.val() || [];
+
+              const nameValue = data.firstName;
+              const email = usr.email;
+              const id = usr.uid
+              const userValue = { email, name: nameValue, uid: id };
+              setUser(userValue);
+            });
+      } 
     });
 
 
-  },[])
+  }, [])
 
 
   return {
     user,
     createAccount,
-    signInUser
+    signInUser,
+    signOutuser
+
   }
 
 }

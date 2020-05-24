@@ -11,3 +11,16 @@
 .inputQuantity{
     width: 10px;
 }
+.productAddButton{
+    text-decoration: none;
+    background-image: linear-gradient(360deg,rgb(253, 21, 21),rgb(253, 21, 21));
+    padding: 5px 5px;
+    border-radius: 40px;
+    border: 1px solid rgb(207, 16, 16);
+    color: white;
+    font-weight: 400;
+    width: 120px;
+    align-items: center;
+    margin-top: 5px;
+    cursor: pointer;
+}

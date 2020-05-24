@@ -13,7 +13,7 @@ const CartData = (props) => {
 
             <div className=" row caartItemDetails ">
                 <div className="col-md-4">
-                    <img className="imageDecoration" src={image} alt="foodimg" />
+                    <img className="imageDecoration" src={require( "../../images/" + image )} alt="foodimg" />
                 </div>
                 <div className="col-md-4 cartoption" style={{ paddingLeft: '50px', paddingTop: '15px' }}>
                     <p >{name.substring(0,15)}</p>
@@ -24,11 +24,11 @@ const CartData = (props) => {
                 <div className="col-md-4">
                     <div className="input-group qunatityDecoration">
 
-                        <button type="button" className="quantity-left-minus btn btn-danger btn-number btnSizing" data-type="minus" data-field="">-</button>
+                        <button type="button" className="quantity-left-minus btn btn-danger btn-number " data-type="minus" data-field="">-</button>
 
                         <p className="quantity">{quantity}</p>
 
-                        <button type="button" className="quantity-right-plus btn btn-success btn-number btnSizing" data-type="plus" data-field="">+</button>
+                        <button type="button" className="quantity-right-plus btn btn-success btn-number " data-type="plus" data-field="">+</button>
 
                     </div>
 

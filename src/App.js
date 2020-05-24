@@ -16,6 +16,7 @@ import Order from './components/Order/Order';
 import { AuthContextProvider, PrivateRoute } from './components/Login/useAuth';
 import Login from './components/Login/Login';
 import CreateAccount from './components/CreateAccount/CreateAccount';
+import Delivery from './components/Delivery/Delivery';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
            </Route>
            <Route  path="/create">
               <CreateAccount></CreateAccount>
+           </Route>
+           <Route path="/delivery">
+             <Delivery></Delivery>
            </Route>
             <Route path="*">
               <NotFound></NotFound>
