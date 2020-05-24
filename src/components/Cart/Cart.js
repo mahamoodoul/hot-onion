@@ -12,8 +12,8 @@ const Cart = (props) => {
     const [products, setProducts] = useState([]);
 
     const userShippingInfo = props.userInfo;
-    console.log(userShippingInfo);
-    console.log(userShippingInfo.length);
+    // console.log(userShippingInfo);
+    // console.log(userShippingInfo.length);
 
     let user = Object.keys(userShippingInfo).map((k) => userShippingInfo[k]);
 
@@ -54,7 +54,7 @@ const Cart = (props) => {
 
     }
 
-    console.log(totalprice);
+    // console.log(totalprice);
     const deliverFee = 5;
     const tax = 4.50;
     const formatNumber = (num) => {

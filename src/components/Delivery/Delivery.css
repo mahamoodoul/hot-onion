@@ -32,10 +32,10 @@
     padding-top: 10px;
     padding-left: 15px;
 }
-p, small {
+.deliveryAddress p, small {
     line-height: 0.7;
 }
-small {
+.deliveryAddress small {
     padding-left: 15px;
 }
 .userInfo{

@@ -5,9 +5,14 @@ import { useEffect } from 'react';
 import FoodCategory from '../FoodCategory/FoodCategory';
 import { Link } from 'react-router-dom';
 import { getDatabaseCart } from '../../utilities/databaseManager';
+import { useAuth } from '../Login/useAuth';
 
 
 const FoodLanding = () => {
+
+    const auth=useAuth();
+    console.log(auth.user);
+    
     const [foodItem, setFoodItem] = useState([]);
     const [cart, setCart] = useState([]);
     const [totalFood,setTotalFood]=useState([]);
@@ -20,7 +25,7 @@ const FoodLanding = () => {
 
             })
     }, [])
-// console.log(totalFood);
+
 
 
     useEffect(() => {

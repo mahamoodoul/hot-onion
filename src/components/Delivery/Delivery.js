@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../Login/useAuth';
 import map from '../../images/map.png';
 import './Delivery.css';
@@ -9,8 +9,16 @@ import man from '../../images/ICON/man.png';
 
 const Delivery = () => {
 
+    // const [name,setName]=useState(null);
     const auth = useAuth();
-    console.log(auth.user);
+
+    if (auth.user) {
+       var name=auth.user.name
+    }
+    else{
+         name="null"
+    }
+
 
 
 
@@ -33,7 +41,7 @@ const Delivery = () => {
                             <div className="d-flex justify-content-start imagePosition">
                                 <img className="deliveryImage" src={delivery} alt="delivery" />
                             </div>
-                            
+
                             <div className="deliveryAddress ">
                                 <p className="d-flex justify-content-start"><FontAwesomeIcon icon={faCircle} color="red" />Your Location</p>
                                 <p className="d-flex justify-content-start"> <small>square hospital</small> </p>
@@ -50,8 +58,8 @@ const Delivery = () => {
                                 </div>
 
                                 <div className="userName">
-                                    <p className="useralign">Shakil</p>
-                                    <p className="useralign"><small>yourRider</small></p>
+                                    <p className="useralign">{name}</p>
+                                    <p className="useralign"><small>Your Rider</small></p>
                                 </div>
 
                             </div>
