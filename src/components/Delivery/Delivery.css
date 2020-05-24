@@ -1,0 +1,70 @@
+.mapImage{
+    width: 500px;
+    height:500px ;
+}
+.contentLayout{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.deliveryContent{
+    margin-left: 100px;
+    width:50%;
+    height:90%;
+    background:whitesmoke;
+    /* background:rgba(248, 197, 197, 0.5); */
+    border-radius: 5px;
+}
+.deliveryImage{
+    width: 60px;
+    margin-top: 30px;
+}
+.contentPosition{
+    margin-left: 20px;
+}
+.deliveryAddress{
+
+    width:90%;
+    height:600% !important;
+    background-color:white;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+p, small {
+    line-height: 0.7;
+}
+small {
+    padding-left: 15px;
+}
+.userInfo{
+    height: 70px;
+    background-color: white;
+    margin-top: 15px;
+    margin-right: 20px;
+    border-radius: 10px;
+    display: flex;
+}
+.useralign{
+    line-height: 0.2;
+}
+.userName{
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.userImage{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.contactBtn{
+    margin-top: 35px;
+    width:230px ;
+    height: 40px;
+    background-color: red;
+    font-size: bold;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid red;
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Header.css';
 import logo from '../../images/logo2.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../Login/useAuth';
 const Header = () => {
 
